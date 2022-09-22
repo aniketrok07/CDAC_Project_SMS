@@ -51,7 +51,7 @@ export default function StudentHomeComponent() {
                         <NavLink className="nav-link adminHome" to="/viewAttendance">View Attendance</NavLink>
                       </li>
                       <li className=" navbutton">
-                      <a className="adminHome" onClick={Logout}>Logout</a>
+                        <a className="adminHome" onClick={Logout}>Logout</a>
                       </li>
                     </ul>
                   </div>

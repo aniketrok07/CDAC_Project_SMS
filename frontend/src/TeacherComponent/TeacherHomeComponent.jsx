@@ -50,7 +50,7 @@ export default function TeacherHomeComponent() {
                         <NavLink className="nav-link adminHome" to="/uploadFiles">Upload files</NavLink>
                       </li>
                       <li className=" navbutton">
-                      <a className="adminHome" onClick={Logout}>Logout</a>
+                        <a className="adminHome" onClick={Logout}>Logout</a>
                       </li>
                     </ul>
                   </div>

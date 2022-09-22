@@ -1,26 +1,26 @@
 import axios from 'axios';
-import React, { useState,useEffect } from 'react'
-import {useHistory} from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 
 export default function () {
 
-    const[clas,setClas]=useState("");
-    const[student,setStudent]=useState([]);
+    const [clas, setClas] = useState("");
+    const [student, setStudent] = useState([]);
 
     const history = useHistory();
 
     const body = {
-        "classid":clas
+        "classid": clas
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         Find();
-    },[]);
+    }, []);
 
-    const Find = async() =>{
+    const Find = async () => {
 
         const url = "http://localhost:8080";
-        await axios.post(url+"/api/v1/student/findStudent",body).then(res=>{
+        await axios.post(url + "/api/v1/student/findStudent", body).then(res => {
             setStudent(res.data);
 
         })
@@ -36,30 +36,30 @@ export default function () {
     //             history.push("#");
     //         }
     //     })
-        
+
     // }
-  return (
-    <div>
+    return (
+        <div>
             <table align="center">
                 <tr>
                     <td>Select Class</td>
-                    <td><input type="number" onChange={e=>{setClas(e.target.value)}} required/></td>
-                    <td><button  className="btn btn-primary" onClick={Find} >find</button></td>
+                    <td><input type="number" onChange={e => { setClas(e.target.value) }} required /></td>
+                    <td><button className="btn btn-primary" onClick={Find} >find</button></td>
                 </tr>
             </table><br></br>
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <td>student Id</td>
-                    <td>first name</td>
-                    <td>last name</td>
-                    <td>Class ID</td>
-                    <td>Fees paid</td>
-                    {/* <td>Action</td> */}
-                </tr>
+                    <tr>
+                        <td>student Id</td>
+                        <td>first name</td>
+                        <td>last name</td>
+                        <td>Class ID</td>
+                        <td>Fees paid</td>
+                        {/* <td>Action</td> */}
+                    </tr>
                 </thead>
                 <tbody>
-                    {student.map((stud,index)=>(
+                    {student.map((stud, index) => (
                         <tr>
                             <td>{stud.student_id}</td>
                             <td>{stud.first_name}</td>
@@ -72,7 +72,7 @@ export default function () {
 
                 </tbody>
             </table>
-        
-    </div>
-  )
+
+        </div>
+    )
 }
