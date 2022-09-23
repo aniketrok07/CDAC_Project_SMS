@@ -100,7 +100,7 @@ export default function AdminHomeComponent() {
 
         <Switch>
           <Route path='/profile' component={MyProfile} />
-          <Route path='/userProfile' component={UserProfile} />
+          <Route exact path='/userProfile' component={UserProfile} />
           <Route path='/addStudent' component={AddStudent} />
           <Route path='/addTeacher' component={AddTeacher} />
           <Route path='/addAdmin' component={AddAdmin} />

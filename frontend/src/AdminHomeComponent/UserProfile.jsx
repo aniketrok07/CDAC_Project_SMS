@@ -7,6 +7,37 @@ import React from 'react'
 
 export default function UserProfile() {
 
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem("status"));
+        if (localStorage.getItem("status")) {
+          if (user.data == "admin") {
+            history.push({
+              pathname: '/userProfile',
+              search: '?query=abc',
+              state: user.user
+            })
+          }
+          if (user.data == "teacher") {
+            history.push({
+              pathname: '/userProfile',
+              search: '?query=abc',
+              state: user.user
+            })
+          }
+          if (user.data == "student") {
+            history.push({
+              pathname: '/userProfile',
+              search: '?query=abc',
+              state: user.user
+            })
+          }
+    
+        }
+        else {
+          history.push("/login");
+        }
+      })
+
     const location = useLocation()
     const data = location.state
     const history = useHistory()
