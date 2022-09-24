@@ -19,6 +19,7 @@ import ViewSubject from './ViewSubject'
 import ViewAttendance from './ViewAttendance'
 import DeleteNotice from './DeleteNotice'
 import Restrict from '../LoginComponent/Restrict'
+import DeleteNoticeComponent from '../NoticeComponent/DeleteNoticeComponent'
 
 export default function AdminHomeComponent() {
 
@@ -113,7 +114,7 @@ export default function AdminHomeComponent() {
           <Route path='/viewSchedule' component={ViewSchedule} />
           <Route path='/viewSubject' component={ViewSubject} />
           <Route path='/viewAttendance' component={ViewAttendance} />
-          <Route path='/deleteNotice' component={DeleteNotice} />
+          <Route path='/deleteNotice' component={DeleteNoticeComponent} />
 
 
         </Switch>
