@@ -68,7 +68,10 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User addAdmin(AdminDTO admin) {
-		try {
+		User u = userRepo.findByEmail(admin.getEmail());
+		System.out.println(u);
+		if(u==null) {
+		
 			final String secretKey = "ssshhhhhhhhhhh!!!!";
 			String password = AES.encrypt(admin.getPassword(), secretKey);
 			User newUser = new User();
@@ -82,11 +85,12 @@ public class UserServiceImpl implements IUserService {
 			newUser.setRole(admin.getRole());
 			newUser.setSecurityCode(admin.getSecurityCode());
 			userRepo.save(newUser);
-			return newUser;
-		} catch (Exception e) {
-			e.printStackTrace();
+			return newUser;}
+		else {
+			return null;
 		}
-		return null;
+		
+		
 	}
 
 	@Override

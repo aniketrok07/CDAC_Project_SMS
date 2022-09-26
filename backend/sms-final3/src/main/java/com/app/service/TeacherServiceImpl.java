@@ -12,6 +12,7 @@ import com.app.dto.TeacherViewDTO;
 import com.app.entities.Teacher;
 import com.app.entities.User;
 import com.app.repository.TeacherRepository;
+import com.app.repository.UserRepository;
 import com.app.security.AES;
 @Service
 @Transactional
@@ -20,10 +21,17 @@ public class TeacherServiceImpl implements ITeacherService {
 	@Autowired
 	private TeacherRepository teachRepo;
 	
+	@Autowired
+	public UserRepository userRepo;
+	
 	AES a = new AES();
 
 	@Override
 	public Teacher addTeacher(TeacherDTO teacher) {
+		
+		User u = userRepo.findByEmail(teacher.getEmail());
+		System.out.println(u);
+		if(u==null) {
 		
 		final String secretKey = "ssshhhhhhhhhhh!!!!";
 		String password = AES.encrypt(teacher.getPassword(), secretKey);
@@ -43,7 +51,10 @@ public class TeacherServiceImpl implements ITeacherService {
 		newteach.setSalary(teacher.getMonthSalary());
 		newteach.setUser(newUser);
 		teachRepo.save(newteach);
-		return newteach;
+		return newteach;}
+		else {
+			return null;
+		}
 	}
 
 	@Override

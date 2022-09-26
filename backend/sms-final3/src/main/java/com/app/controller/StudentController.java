@@ -43,9 +43,13 @@ public class StudentController {
 	@PostMapping("/addStudent")
 	public ResponseEntity<?> addStudent(@RequestBody StudentDTO stud)
 	{
-		studServ.addStudent(stud);
+		Student st=studServ.addStudent(stud);
 		Map<String,Object> map = new HashMap<>();
-		map.put("status", "success");
+		if(st!=null) {
+		map.put("status", "success");}
+		else {
+			map.put("status", "failure");
+		}
 		return ResponseEntity.ok(map);
 	}
 	
@@ -91,7 +95,7 @@ public class StudentController {
 		Map<String,Object> map = new HashMap<>();
 		if(stud!=null)
 		{
-			repo.delete(stud);
+			repo.deleteById(id);
 			map.put("status", "success");
 			
 		}else {

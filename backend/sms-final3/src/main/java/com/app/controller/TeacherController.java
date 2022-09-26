@@ -19,6 +19,7 @@ import com.app.dto.TeacherDTO;
 import com.app.dto.TeacherViewDTO;
 import com.app.dto.ViewMarksDTO;
 import com.app.entities.Marks;
+import com.app.entities.Teacher;
 import com.app.service.MarksServiceImpl;
 import com.app.service.TeacherServiceImpl;
 
@@ -41,9 +42,13 @@ public class TeacherController {
 	@PostMapping("/addTeacher")
 	public ResponseEntity<?> addTeacher(@RequestBody TeacherDTO teacher)
 	{
-		teachServ.addTeacher(teacher);
+		Teacher teach=teachServ.addTeacher(teacher);
 		Map<String,Object> map = new HashMap<>();
-		map.put("status", "success");
+		if(teach!=null) {
+		map.put("status", "success");}
+		else {
+			map.put("status", "failure");
+		}
 		return ResponseEntity.ok(map);
 	}
 	

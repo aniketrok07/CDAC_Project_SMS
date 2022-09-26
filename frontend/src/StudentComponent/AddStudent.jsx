@@ -62,6 +62,8 @@ export default function AddStudent() {
             if (result.status == "success") {
                 window.alert("Registration Successful");
                 history.push('/adminHome');
+            }else{
+                window.alert("email id already used");
             }
         })
     }

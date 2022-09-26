@@ -62,6 +62,8 @@ export default function AddTeacher() {
             if (result.status == "success") {
                 window.alert("Registration Successful");
                 history.push('/adminHome');
+            }else{
+                window.alert("Email id already registered");
             }
         })
     }

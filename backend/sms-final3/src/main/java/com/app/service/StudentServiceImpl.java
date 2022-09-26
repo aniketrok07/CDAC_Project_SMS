@@ -13,6 +13,7 @@ import com.app.entities.Student;
 import com.app.entities.User;
 import com.app.repository.ClassRepository;
 import com.app.repository.StudentRepository;
+import com.app.repository.UserRepository;
 import com.app.security.AES;
 @Service
 @Transactional
@@ -24,10 +25,18 @@ public class StudentServiceImpl implements IStudentService {
 	@Autowired
 	public ClassRepository classRepo;
 	
+	@Autowired
+	public UserRepository userRepo;
+	
 	AES a = new AES();
 
 	@Override
 	public Student addStudent(StudentDTO stud) {
+		
+		User u = userRepo.findByEmail(stud.getEmail());
+		System.out.println(u);
+		if(u==null) {
+		
 		final String secretKey = "ssshhhhhhhhhhh!!!!";
 		String password = AES.encrypt(stud.getPassword(), secretKey);
 		
@@ -46,7 +55,10 @@ public class StudentServiceImpl implements IStudentService {
 		newStud.setCls(cls);
 		newStud.setUser(newUser);
 		studRepo.save(newStud);
-		return newStud;
+		return newStud;}
+		else {
+			return null;
+		}
 		
 	}
 
