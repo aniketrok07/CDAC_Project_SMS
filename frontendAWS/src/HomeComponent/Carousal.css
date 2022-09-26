@@ -1,0 +1,65 @@
+.carousel-item{
+    height: 25rem;
+    background-color: #000;
+    
+}
+.logosize{
+    height: 50px;
+}
+.name{
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.cardbar{
+    
+    height: 190px;
+    width: 450px;
+    background-color: rgba(230,190,30,0.8)
+    ;
+}
+.cardbar2{
+    height: 190px;
+    width: 574px;
+    background-color: #e7e6e6;
+    float: left;
+}
+.innercard{
+   
+    position: relative;
+    font-weight: bold;
+    
+    top: 40px;
+    left: 220px;
+    height: 130px;
+    width: 170px;
+    color:white;
+    
+    
+}
+.shadow{ 
+    box-shadow: 10px 10px 5px grey;
+}
+
+.leftdiv
+{
+float: left;
+padding : 1%;
+color: white;
+background-color: 009900;
+width: 30%;
+}
+.middlediv
+{
+float: left;
+background-color:gray
+}
+.rightdiv
+{
+float: right;
+padding : 1%;
+color: white;
+background-color: 009900;
+width: 50%;
+}
