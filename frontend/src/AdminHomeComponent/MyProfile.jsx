@@ -8,22 +8,22 @@ export default function MyProfile(props) {
     const userId = props.location.aboutProps.id.user
     const url = "http://localhost:8080"
 
-    useEffect(() => {
+    useEffect(() =>{
         getProfile()
-    }, [])
+    },[])
 
-    const getProfile = () => {
-        const body = {
-            "userid": userId
+    const getProfile = () =>{
+        const body ={
+            "userid" : userId
         }
-        console.log("userid : " + userId)
+        console.log("userid : "+userId )
 
-        axios.post(url + "/api/v1/user/myprofile", body).then(Response => {
+        axios.post(url+"/api/v1/user/myprofile",body).then(Response =>{
             const result = Response.data
-            if (result.status == "success") {
+            if(result.status == "success"){
                 history.push({
-                    pathname: '/userProfile',
-                    search: '?query=abc',
+                    pathname:'/userProfile',
+                    search:'?query=abc',
                     state: result.user
                 })
             }
@@ -31,8 +31,8 @@ export default function MyProfile(props) {
 
     }
 
-    return (
-        <div></div>
-    )
+  return (
+    <div></div>
+  )
 
 }

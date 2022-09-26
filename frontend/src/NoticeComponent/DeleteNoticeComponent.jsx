@@ -29,7 +29,7 @@ export default function DeleteNoticeComponent() {
             const result = res.data
             if(result.status=="success")
             {
-                history.push("/adminHome");
+                window.location.reload(false);
             }
         })
 

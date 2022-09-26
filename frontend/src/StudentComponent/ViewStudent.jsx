@@ -28,6 +28,7 @@ export default function () {
     }
 
     // const Delete = (id)=>{
+        
     //     const url = `http://localhost:8080/api/v1/student/${id}`;
     //     axios.delete(url).then(res=>{
     //         const result = res.data
@@ -66,7 +67,7 @@ export default function () {
                             <td>{stud.last_name}</td>
                             <td>{stud.class_id}</td>
                             <td>{stud.fees_paid}</td>
-                            {/* <td><button onClick={()=>Delete(stud.student_id)} >Delete</button></td> */}
+                            {/* <td><button onClick={()=>Delete(stud.studentId)} >Delete</button></td> */}
                         </tr>
                     ))}
 

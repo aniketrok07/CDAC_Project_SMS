@@ -24,7 +24,7 @@ public class Class {
 	private int class_id;
 	
 	
-	@OneToMany(mappedBy = "cls",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "cls",cascade = CascadeType.PERSIST,fetch=FetchType.EAGER)
 	private Set<Student> students =new HashSet<>();
 	
 	@OneToOne
