@@ -54,18 +54,18 @@ public class NoticeController {
 		return ResponseEntity.ok(map);
 	}
 	
-	@PostMapping("/delete")
-	public ResponseEntity<?> delete(@RequestBody Notice notice)
-	{
-		boolean not = noticeService.deleteNotice(notice.getNoticeId());
-		Map<String,Object> map = new HashMap<>();
-		if(not==true) {
-			map.put("status", "success");
-		}else {
-			map.put("status", "error");
-		}
-		return ResponseEntity.ok(map);
-	}
+//	@PostMapping("/delete")
+//	public ResponseEntity<?> delete(@RequestBody Notice notice)
+//	{
+//		boolean not = noticeService.deleteNotice(notice.getNoticeId());
+//		Map<String,Object> map = new HashMap<>();
+//		if(not==true) {
+//			map.put("status", "success");
+//		}else {
+//			map.put("status", "error");
+//		}
+//		return ResponseEntity.ok(map);
+//	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteNOtice(@PathVariable Integer id)

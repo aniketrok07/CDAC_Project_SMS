@@ -47,7 +47,7 @@ export default function AddNotice() {
           <tr>
             <td>Notice: </td>
             <td>
-              <input maxlength="20" onChange={e => { setNotice(e.target.value) }} type="text" required />
+              <input maxlength="30" onChange={e => { setNotice(e.target.value) }} type="text" required />
             </td>
           </tr>
         </table>

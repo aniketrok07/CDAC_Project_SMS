@@ -16,7 +16,7 @@ export default function LoginComponent() {
           search: '?query=abc',
           state: user.user
         })
-      }
+      } //awaza yet 
       if (user.data == "teacher") {
         history.push({
           pathname: '/teacherHome',
